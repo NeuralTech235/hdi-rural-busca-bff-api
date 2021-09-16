@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Slf4j
@@ -20,7 +21,11 @@ public class RuralBuscaService {
 //                .lstApolices(new ArrayList<ApolicesDto>())
 //                .lstEndossos(new ArrayList<EndossoDto>())
 //                .build();
-        BuscaCotacaoResponseDto response = new BuscaCotacaoResponseDto();
+         BuscaCotacaoResponseDto response = new BuscaCotacaoResponseDto();
+         response.setLstApolices(new ArrayList<ApolicesDto>());
+         response.setLstCotacoes(new ArrayList<CotacaoDto>());
+         response.setLstEndossos(new ArrayList<EndossoDto>());
+
         return modelMapper.map(response, BuscaCotacaoResponseApi.class);
     }
 }

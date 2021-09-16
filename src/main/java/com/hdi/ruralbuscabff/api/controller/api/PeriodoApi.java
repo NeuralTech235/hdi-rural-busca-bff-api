@@ -1,5 +1,6 @@
 package com.hdi.ruralbuscabff.api.controller.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +13,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class PeriodoApi {
+    @JsonProperty("dataInicio")
     private String dataInicio;
+    @JsonProperty("dataFinal")
     private String dataFinal;
 }
