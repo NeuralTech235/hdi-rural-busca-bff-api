@@ -1,0 +1,12 @@
+server:
+  port: 8090
+spring:
+  config:
+    activate:
+      on-profile: local
+  application:
+    name: hdi-rural-busca-bff-api
+
+logging:
+  file: hdi-rural-busca-bff.log
+  org.hibernate: INFO
