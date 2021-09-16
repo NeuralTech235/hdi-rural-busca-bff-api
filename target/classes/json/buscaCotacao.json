@@ -1,0 +1,10 @@
+{
+  "numeroDaCotacao":"123456",
+  "nome":"Paulo de Tarso Moreira Cesar",
+  "docCPF":"577.608.660-46",
+  "docCNPJ":"",
+  "periodoCriacaoCotacao":{
+    "dataInicio":"16/09/2021",
+    "dataFinal":"19/09/2021"
+  }
+}
