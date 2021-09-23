@@ -1,6 +1,6 @@
 package com.hdi.ruralbuscabff.api.model.emum;
 
-public enum EBaoFilterEnum {
+public enum EBaoFilterKeyEnum {
 
     CONDITIONS("Conditions","Conditions","Campos onde a condição de filtro é exatamente o procurado"),
     IN_CONDITIONS("InConditions","InConditions","Campos onde quero que aconteça uma determinada mescla de valores para um mesmo campo"),
@@ -14,7 +14,7 @@ public enum EBaoFilterEnum {
     private String value;
     private String description;
 
-    EBaoFilterEnum(String key, String value, String description) {
+    EBaoFilterKeyEnum(String key, String value, String description) {
         this.key = key;
         this.value = value;
         this.description = description;

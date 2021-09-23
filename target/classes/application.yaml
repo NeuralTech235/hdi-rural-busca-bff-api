@@ -10,3 +10,11 @@ spring:
 logging:
   file: hdi-rural-busca-bff.log
   org.hibernate: INFO
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 50000
+        readTimeout: 50000
+        loggerLevel: basic

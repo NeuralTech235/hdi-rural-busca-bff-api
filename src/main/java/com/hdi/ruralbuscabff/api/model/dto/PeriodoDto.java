@@ -12,6 +12,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class PeriodoDto {
-    private LocalDate dataInicio;
-    private LocalDate dataFinal;
+    private String dataInicio;
+    private String dataFinal;
 }
