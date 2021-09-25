@@ -11,6 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class EsDoc {
+
+    @JsonProperty("AgentIdNo")
+    private String agentIdNo;
+
+    @JsonProperty("CommunicationType")
+    private String communicationType;
+
+    @JsonProperty("CustomerName")
+    private String customerName;
+
     @JsonProperty("EffectiveDate")
     private String effectiveDate;
 
@@ -28,6 +38,30 @@ public class EsDoc {
 
     @JsonProperty("InsuredIdType")
     private String insuredIdType;
+
+    @JsonProperty("LocAddress")
+    private String locAddress;
+
+    @JsonProperty("LocCity")
+    private String locCity;
+
+    @JsonProperty("LocPostCode")
+    private String locPostCode;
+
+    @JsonProperty("LocSeqNumber")
+    private String locSeqNumber;
+
+    @JsonProperty("LocState")
+    private String locState;
+
+    @JsonProperty("PHAgreementCode")
+    private String pHAgreementCode;
+
+    @JsonProperty("pHCode")
+    private String pHCode;
+
+    @JsonProperty("PHUnit")
+    private String pHUnit;
 
     @JsonProperty("PolicyHolder")
     private String policyHolder;
@@ -59,6 +93,9 @@ public class EsDoc {
     @JsonProperty("ProposalStatus")
     private Integer proposalStatus;
 
+    @JsonProperty("WelcomeKit")
+    private String welcomeKit;
+
     @JsonProperty("entity_id")
     private Long entity_id;
 
@@ -76,4 +113,5 @@ public class EsDoc {
 
     @JsonProperty("tenant_code")
     private String tenant_code;
+
 }
