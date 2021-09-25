@@ -3,24 +3,22 @@ package com.hdi.ruralbuscabff.api.service;
 import com.hdi.ruralbuscabff.api.constants.SearchConst;
 import com.hdi.ruralbuscabff.api.controller.api.BuscaCotacaoResponseApi;
 import com.hdi.ruralbuscabff.api.integration.SearchClient;
-import com.hdi.ruralbuscabff.api.model.dto.*;
+import com.hdi.ruralbuscabff.api.model.dto.BuscaCotacaoDto;
+import com.hdi.ruralbuscabff.api.model.dto.BuscaCotacaoResponseDto;
 import com.hdi.ruralbuscabff.api.model.dto.queryPolicy.QueryPolicyFilterDto;
 import com.hdi.ruralbuscabff.api.model.dto.queryPolicy.QueryPolicyResultDto;
 import com.hdi.ruralbuscabff.api.model.emum.SearchFilterEnum;
 import com.hdi.ruralbuscabff.api.util.MapQueryPolicyToResponseUtil;
-import feign.Feign;
-import feign.Logger;
-import feign.gson.GsonDecoder;
-import feign.gson.GsonEncoder;
-import feign.okhttp.OkHttpClient;
-import feign.slf4j.Slf4jLogger;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,30 +26,12 @@ import java.util.Map;
 @Slf4j
 public class RuralBuscaService {
 
-    private String target_ebao_search;
+    private SearchClient searchClient;
     private ModelMapper modelMapper = new ModelMapper();
 
-    public BuscaCotacaoResponseApi buscaPorCotacaoNumero(final BuscaCotacaoDto buscaCotacaoDto) {
-//        BuscaCotacaoResponseDto response = BuscaCotacaoResponseDto.builder()
-//                .lstCotacoes(new ArrayList<CotacaoDto>())
-//                .lstApolices(new ArrayList<ApolicesDto>())
-//                .lstEndossos(new ArrayList<EndossoDto>())
-//                .build();
-
-        SearchClient searchClient = Feign.builder()
-                .client(new OkHttpClient())
-                .encoder(new GsonEncoder())
-                .decoder(new GsonDecoder())
-                .logger(new Slf4jLogger(SearchClient.class))
-                .logLevel(Logger.Level.FULL)
-                .target(SearchClient.class, target_ebao_search);
-
-        BuscaCotacaoResponseDto response = new BuscaCotacaoResponseDto();
-        response.setLstApolices(new ArrayList<ApolicesDto>());
-        response.setLstCotacoes(new ArrayList<CotacaoDto>());
-        response.setLstEndossos(new ArrayList<EndossoDto>());
-
-        return modelMapper.map(response, BuscaCotacaoResponseApi.class);
+    @Autowired
+    public RuralBuscaService(SearchClient searchClient) {
+        this.searchClient = searchClient;
     }
 
     public BuscaCotacaoResponseApi searchByPeriod(final BuscaCotacaoDto buscaCotacao) {
@@ -77,11 +57,13 @@ public class RuralBuscaService {
                     .toRangeConditions(fromRangeConditional)
                     .build();
 
-            SearchClient searchClient = Feign.builder()
-                    .target(SearchClient.class,
-                            "https://sandbox-am-gw.insuremo.com/hdibr/1.0/hdibr-bff-app/v1/policy/query");
+            MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+            headers.put("Authorization", Collections.singletonList("Bearer xqWgOQ8MT8KQ8jvRIz65vw"));
+            headers.put("Content-Type", Collections.singletonList("appication/json"));
+            headers.put("x-ebao-tenant-id", Collections.singletonList("hdibr"));
+            headers.put("x-ebao-br-user-role", Collections.singletonList("admin"));
 
-            QueryPolicyResultDto result = searchClient.searchByQueryPolicy(queryPolicyFilter);
+            QueryPolicyResultDto result = searchClient.searchByQueryPolicy(headers, queryPolicyFilter);
 
             //Map result to return BuscaCotacaoResponseDto.
             response = MapQueryPolicyToResponseUtil.mapTo(result);

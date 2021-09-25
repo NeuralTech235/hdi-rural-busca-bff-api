@@ -1,31 +1,34 @@
 package com.hdi.ruralbuscabff.api.controller;
 
-import com.hdi.ruralbuscabff.api.service.RuralBuscaService;
 import com.hdi.ruralbuscabff.api.controller.api.BuscaCotacaoApi;
 import com.hdi.ruralbuscabff.api.controller.api.BuscaCotacaoResponseApi;
 import com.hdi.ruralbuscabff.api.model.dto.BuscaCotacaoDto;
+import com.hdi.ruralbuscabff.api.service.RuralBuscaService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/rural/buscas")
 @Slf4j
 public class RuralBuscaController {
+
     private RuralBuscaService ruralBuscaBffService;
-    private ModelMapper modelMapper;
+    private ModelMapper modelMapper = new ModelMapper();
 
     @Autowired
     public RuralBuscaController(RuralBuscaService ruralBuscaBffService) {
         this.ruralBuscaBffService = ruralBuscaBffService;
-        this.modelMapper = new ModelMapper();
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public BuscaCotacaoResponseApi buscaPorNumeroCotacao(@RequestBody BuscaCotacaoApi buscaCotacaoApi) {
-        return this.ruralBuscaBffService.buscaPorCotacaoNumero(
+    public BuscaCotacaoResponseApi searchByPeriod(@RequestBody BuscaCotacaoApi buscaCotacaoApi) {
+        return this.ruralBuscaBffService.searchByPeriod(
                 this.modelMapper.map(buscaCotacaoApi, BuscaCotacaoDto.class));
     }
 }
