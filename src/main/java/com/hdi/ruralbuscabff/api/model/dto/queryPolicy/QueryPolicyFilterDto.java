@@ -15,28 +15,38 @@ import java.util.Map;
 public class QueryPolicyFilterDto {
 
     @JsonProperty("Conditions")
-    private Map<String,Object> conditions;
+    private Map<String, Object> conditions;
+
     @JsonProperty("InConditions")
-    private Map<String,Object> inConditions;
+    private Map<String, Object> inConditions;
+
     @JsonProperty("NotInConditions")
-    private Map<String,Object> notInConditions;
+    private Map<String, Object> notInConditions;
+
     @JsonProperty("FuzzyConditions")
-    private Map<String,Object> fuzzyConditions;
+    private Map<String, Object> fuzzyConditions;
+
+    @JsonProperty("OrFuzzyConditions")
+    private Map<String, Object> orFuzzyConditions;
+
     @JsonProperty("FromRangeConditions")
-    private Map<String,Object> orFuzzyConditions;
-    @JsonProperty("FromRangeConditions")
-    private Map<String,Object> fromRangeConditions;
+    private Map<String, Object> fromRangeConditions;
+
     @JsonProperty("ToRangeConditions")
-    private Map<String,Object> toRangeConditions;
+    private Map<String, Object> toRangeConditions;
 
     @JsonProperty("PageNo")
-    private String pageNo;
+    private Integer pageNo;
+
     @JsonProperty("PageSize")
-    private String pageSize;
+    private Integer pageSize;
+
     @JsonProperty("SortField")
     private String sortField;
+
     @JsonProperty("SortType")
     private String sortType;
+
     @JsonProperty("Module")
     private String module;
 

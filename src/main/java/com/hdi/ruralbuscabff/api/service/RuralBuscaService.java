@@ -1,5 +1,8 @@
 package com.hdi.ruralbuscabff.api.service;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hdi.ruralbuscabff.api.constants.SearchConst;
 import com.hdi.ruralbuscabff.api.controller.api.BuscaCotacaoResponseApi;
 import com.hdi.ruralbuscabff.api.integration.SearchClient;
@@ -9,21 +12,18 @@ import com.hdi.ruralbuscabff.api.model.dto.queryPolicy.QueryPolicyFilterDto;
 import com.hdi.ruralbuscabff.api.model.dto.queryPolicy.QueryPolicyResultDto;
 import com.hdi.ruralbuscabff.api.model.emum.SearchFilterEnum;
 import com.hdi.ruralbuscabff.api.util.MapQueryPolicyToResponseUtil;
-import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
-@Slf4j
 public class RuralBuscaService {
 
     private SearchClient searchClient;
@@ -49,29 +49,31 @@ public class RuralBuscaService {
                     SearchFilterEnum.PROPOSAL_DATE.getKey(), startFrom.format(DateTimeFormatter.ISO_DATE_TIME));
             //To Filter
             Map<String, Object> toRangeConditional = new HashMap();
-            fromRangeConditional.put(
+            toRangeConditional.put(
                     SearchFilterEnum.PROPOSAL_DATE.getKey(), endTo.format(DateTimeFormatter.ISO_DATE_TIME));
 
             QueryPolicyFilterDto queryPolicyFilter = QueryPolicyFilterDto.builder()
                     .fromRangeConditions(fromRangeConditional)
-                    .toRangeConditions(fromRangeConditional)
+                    .toRangeConditions(toRangeConditional)
+                    .module("Policy")
+                    .pageNo(1)
+                    .pageSize(1000)
+                    .sortField("EffectiveDate")
+                    .sortType("desc")
                     .build();
 
-            MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
-            headers.put("Authorization", Collections.singletonList("Bearer xqWgOQ8MT8KQ8jvRIz65vw"));
-            headers.put("Content-Type", Collections.singletonList("appication/json"));
-            headers.put("x-ebao-tenant-id", Collections.singletonList("hdibr"));
-            headers.put("x-ebao-br-user-role", Collections.singletonList("admin"));
+//            ObjectMapper objectMapper = new ObjectMapper();
+//            objectMapper.writeValue(new File("target/filter.json"), queryPolicyFilter);
 
-            QueryPolicyResultDto result = searchClient.searchByQueryPolicy(headers, queryPolicyFilter);
+            QueryPolicyResultDto result = searchClient.searchByQueryPolicy(queryPolicyFilter);
 
             //Map result to return BuscaCotacaoResponseDto.
             response = MapQueryPolicyToResponseUtil.mapTo(result);
 
         } catch (SecurityException ex) {
-
-        } finally {
-
+            ex.printStackTrace();
+        }  finally {
+            System.out.println("End process");
         }
         return modelMapper.map(response, BuscaCotacaoResponseApi.class);
     }

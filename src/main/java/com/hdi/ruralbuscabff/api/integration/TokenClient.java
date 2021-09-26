@@ -1,11 +1,16 @@
 package com.hdi.ruralbuscabff.api.integration;
 
 import com.hdi.ruralbuscabff.api.model.dto.token.TokenMultiClientDto;
-import feign.RequestLine;
+import com.hdi.ruralbuscabff.api.model.dto.token.UserDto;
+import feign.Headers;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient(name="TokenClient",url="{token.host}")
+@FeignClient(name = "tokenClient", url = "https://hdibr-gi-sandbox-am.insuremo.com")
 public interface TokenClient {
-    @RequestLine("GET /v1/json/tickets")
-    TokenMultiClientDto getTokenMulticlient();
+    @Headers("ContentType: application/json")
+    @RequestMapping(method = RequestMethod.POST, value = "/v1/json/tickets", consumes = "application/json")
+    TokenMultiClientDto getTokenMulticlient(@RequestBody UserDto userDto);
 }

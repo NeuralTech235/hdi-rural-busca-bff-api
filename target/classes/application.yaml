@@ -15,6 +15,6 @@ feign:
   client:
     config:
       default:
-        connectTimeout: 50000
-        readTimeout: 50000
-        loggerLevel: basic
+        connetionTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
