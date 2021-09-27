@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class UsuarioDto {
-    private Integer usuarioId;
+    private String usuarioId;
     private String nomeUsuario;
 }

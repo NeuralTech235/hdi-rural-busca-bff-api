@@ -7,10 +7,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class ApolicesDto {
+public class ProposalDto {
+
     @JsonProperty("cotacaoNumero")
     private String quotationNumber;
 
@@ -30,13 +31,10 @@ public class ApolicesDto {
     private PeriodoDto validity;
 
     @JsonProperty("doctoCorretor")
-    private String insuranceBrokerDoc;
+    private UsuarioDto insuranceBroker;
 
     @JsonProperty("transmissao")
-    private String transmission;
-
-    @JsonProperty("emissao")
-    private String policeIssueDate;
+    private UsuarioDto transmission;
 
     @JsonProperty("statusProposta")
     private String proposalStatus;
@@ -45,7 +43,7 @@ public class ApolicesDto {
     private UsuarioDto applicationUser;
 
     @JsonProperty("kitBoasVindas")
-    private String welcomeKit;
+    private Integer welcomeKit;
 
     @JsonProperty("item")
     private ItemDto item;
@@ -55,4 +53,5 @@ public class ApolicesDto {
 
     @JsonProperty("bonus")
     private String bonus;
+
 }

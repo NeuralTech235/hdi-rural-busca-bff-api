@@ -1,8 +1,5 @@
 package com.hdi.ruralbuscabff.api.service;
 
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hdi.ruralbuscabff.api.constants.SearchConst;
 import com.hdi.ruralbuscabff.api.controller.api.BuscaCotacaoResponseApi;
 import com.hdi.ruralbuscabff.api.integration.SearchClient;
@@ -16,8 +13,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -68,11 +63,11 @@ public class RuralBuscaService {
             QueryPolicyResultDto result = searchClient.searchByQueryPolicy(queryPolicyFilter);
 
             //Map result to return BuscaCotacaoResponseDto.
-            response = MapQueryPolicyToResponseUtil.mapTo(result);
+            response = (new MapQueryPolicyToResponseUtil()).mapTo(result);
 
         } catch (SecurityException ex) {
             ex.printStackTrace();
-        }  finally {
+        } finally {
             System.out.println("End process");
         }
         return modelMapper.map(response, BuscaCotacaoResponseApi.class);

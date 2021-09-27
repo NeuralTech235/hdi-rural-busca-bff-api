@@ -10,13 +10,13 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class BuscaCotacaoResponseDto {
-    public BuscaCotacaoResponseDto(List<CotacaoDto> lstCotacoes, List<ApolicesDto> lstApolices, List<EndossoDto> lstEndossos) {
+    public BuscaCotacaoResponseDto(List<CotacaoDto> lstCotacoes, List<ApolicesDto> lstApolices, List<ProposalDto> lstProposal) {
         this.lstCotacoes = lstCotacoes;
         this.lstApolices = lstApolices;
-        this.lstEndossos = lstEndossos;
+        this.lstProposal = lstProposal;
     }
 
     private List<CotacaoDto> lstCotacoes;
     private List<ApolicesDto> lstApolices;
-    private List<EndossoDto> lstEndossos;
+    private List<ProposalDto> lstProposal;
 }

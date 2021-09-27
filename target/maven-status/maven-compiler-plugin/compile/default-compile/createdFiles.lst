@@ -24,6 +24,7 @@ com/hdi/ruralbuscabff/api/model/dto/OperacaoDto.class
 com/hdi/ruralbuscabff/api/controller/api/ApolicesApi.class
 com/hdi/ruralbuscabff/api/controller/api/ProdutoApi.class
 com/hdi/ruralbuscabff/api/integration/interceptor/SearchInterceptor.class
+com/hdi/ruralbuscabff/api/model/dto/ProposalDto$ProposalDtoBuilder.class
 com/hdi/ruralbuscabff/api/model/dto/EndossoDto.class
 com/hdi/ruralbuscabff/api/model/dto/SucursalDto.class
 com/hdi/ruralbuscabff/api/config/FeignConfig.class
@@ -71,3 +72,4 @@ com/hdi/ruralbuscabff/api/model/dto/CotacaoDto$CotacaoDtoBuilder.class
 com/hdi/ruralbuscabff/api/model/dto/ProdutoDto.class
 com/hdi/ruralbuscabff/api/controller/api/EndossoApi.class
 com/hdi/ruralbuscabff/api/model/dto/token/UserDto.class
+com/hdi/ruralbuscabff/api/model/dto/ProposalDto.class
