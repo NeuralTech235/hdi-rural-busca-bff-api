@@ -31,4 +31,12 @@ public enum TypesEnum {
     public void setDescribe(String describe) {
         this.describe = describe;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

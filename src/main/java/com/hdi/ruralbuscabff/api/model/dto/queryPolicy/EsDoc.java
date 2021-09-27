@@ -1,6 +1,7 @@
 package com.hdi.ruralbuscabff.api.model.dto.queryPolicy;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.hdi.ruralbuscabff.api.model.emum.TypesEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -114,4 +115,13 @@ public class EsDoc {
     @JsonProperty("tenant_code")
     private String tenant_code;
 
+    public String getProposalStatusDesc() {
+        if (this.proposalStatus.compareTo(TypesEnum.PROPOSAL.getId()) == 0)
+            return TypesEnum.PROPOSAL.getKey();
+        if (this.proposalStatus.compareTo(TypesEnum.QUOTES.getId()) == 0)
+            return TypesEnum.QUOTES.getKey();
+        if (this.proposalStatus.compareTo(TypesEnum.POLICIES.getId()) == 0)
+            return TypesEnum.POLICIES.getKey();
+        return TypesEnum.NOT_DEFINED.getKey();
+    }
 }

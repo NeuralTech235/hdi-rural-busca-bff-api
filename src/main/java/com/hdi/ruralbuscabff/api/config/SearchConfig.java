@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SearchConfig {
 
-    private static final String AUTORIZATION_HEADER_VALUE = "Bearer DMJRhNQAQzafobG6Bx_PxA";
+    private static final String AUTORIZATION_HEADER_VALUE = "Bearer d-kn_xImTFavp4J2VN14tw";
     private static final String AUTORIZATION = "Authorization";
 
     private static final String CONTENT_TYPE = "Content-Type";

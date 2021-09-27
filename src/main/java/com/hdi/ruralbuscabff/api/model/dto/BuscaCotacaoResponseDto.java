@@ -1,6 +1,5 @@
 package com.hdi.ruralbuscabff.api.model.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +16,7 @@ public class BuscaCotacaoResponseDto {
         this.lstEndossos = lstEndossos;
     }
 
-    private List<CotacaoDto>lstCotacoes;
-    private List<ApolicesDto>lstApolices;
-    private List<EndossoDto>lstEndossos;
+    private List<CotacaoDto> lstCotacoes;
+    private List<ApolicesDto> lstApolices;
+    private List<EndossoDto> lstEndossos;
 }
