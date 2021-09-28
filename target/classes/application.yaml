@@ -18,3 +18,11 @@ feign:
         connetionTimeout: 5000
         readTimeout: 5000
         loggerLevel: full
+
+rural-busca-bff:
+  getToken:
+    url: https://hdibr-gi-sandbox-am.insuremo.com
+    username: hdibr.app
+    password: eBao2014
+  queryPolicy:
+    url: https://sandbox-am-gw.insuremo.com/hdibr/1.0/hdibr-bff-app

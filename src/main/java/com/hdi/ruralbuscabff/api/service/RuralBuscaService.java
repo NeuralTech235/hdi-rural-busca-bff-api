@@ -2,7 +2,7 @@ package com.hdi.ruralbuscabff.api.service;
 
 import com.hdi.ruralbuscabff.api.constants.SearchConst;
 import com.hdi.ruralbuscabff.api.controller.api.BuscaCotacaoResponseApi;
-import com.hdi.ruralbuscabff.api.integration.SearchClient;
+import com.hdi.ruralbuscabff.api.client.SearchClient;
 import com.hdi.ruralbuscabff.api.model.dto.BuscaCotacaoResponseDto;
 import com.hdi.ruralbuscabff.api.model.dto.QuotationSearchDto;
 import com.hdi.ruralbuscabff.api.model.dto.queryPolicy.QueryPolicyFilterDto;

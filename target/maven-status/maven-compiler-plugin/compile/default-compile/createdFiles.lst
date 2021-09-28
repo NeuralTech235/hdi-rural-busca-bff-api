@@ -14,6 +14,7 @@ com/hdi/ruralbuscabff/api/model/dto/PeriodoDto$PeriodoDtoBuilder.class
 com/hdi/ruralbuscabff/api/model/dto/EndossoDto$EndossoDtoBuilder.class
 com/hdi/ruralbuscabff/api/model/dto/queryPolicy/ResultDto$ResultDtoBuilder.class
 com/hdi/ruralbuscabff/api/model/dto/ProdutoDto$ProdutoDtoBuilder.class
+com/hdi/ruralbuscabff/api/client/interceptor/SearchInterceptor.class
 com/hdi/ruralbuscabff/api/model/emum/TypesEnum.class
 com/hdi/ruralbuscabff/api/model/dto/QuotationSearchDto$QuotationSearchDtoBuilder.class
 com/hdi/ruralbuscabff/api/controller/api/SucursalApi$SucursalApiBuilder.class
@@ -24,14 +25,12 @@ com/hdi/ruralbuscabff/api/controller/api/UsuarioApi$UsuarioApiBuilder.class
 com/hdi/ruralbuscabff/api/model/dto/OperacaoDto.class
 com/hdi/ruralbuscabff/api/controller/api/ApolicesApi.class
 com/hdi/ruralbuscabff/api/controller/api/ProdutoApi.class
-com/hdi/ruralbuscabff/api/integration/interceptor/SearchInterceptor.class
 com/hdi/ruralbuscabff/api/model/dto/ProposalDto$ProposalDtoBuilder.class
 com/hdi/ruralbuscabff/api/model/dto/EndossoDto.class
 com/hdi/ruralbuscabff/api/model/dto/SucursalDto.class
 com/hdi/ruralbuscabff/api/config/FeignConfig.class
 com/hdi/ruralbuscabff/api/model/dto/QuotationSearchDto.class
 com/hdi/ruralbuscabff/api/execptions/BadRequestException.class
-com/hdi/ruralbuscabff/api/integration/SearchClient.class
 com/hdi/ruralbuscabff/api/model/dto/queryPolicy/QueryPolicyResultDto.class
 com/hdi/ruralbuscabff/api/model/dto/token/TokenMultiClientDto.class
 com/hdi/ruralbuscabff/api/controller/api/QuotationSearchApi.class
@@ -40,9 +39,9 @@ com/hdi/ruralbuscabff/api/model/dto/token/TokenMultiClientDto$TokenMultiClientDt
 com/hdi/ruralbuscabff/api/execptions/NotFoundException.class
 com/hdi/ruralbuscabff/api/controller/api/SearchConfigApi.class
 com/hdi/ruralbuscabff/api/controller/api/CotacaoApi$CotacaoApiBuilder.class
-com/hdi/ruralbuscabff/api/integration/TokenClient.class
 com/hdi/ruralbuscabff/api/controller/api/BuscaCotacaoResponseApi$BuscaCotacaoResponseApiBuilder.class
 com/hdi/ruralbuscabff/api/util/MapQueryPolicyToResponseUtil.class
+com/hdi/ruralbuscabff/api/client/TokenClient.class
 com/hdi/ruralbuscabff/api/model/emum/SearchFilterEnum.class
 com/hdi/ruralbuscabff/api/model/dto/SucursalDto$SucursalDtoBuilder.class
 com/hdi/ruralbuscabff/api/model/dto/UsuarioDto$UsuarioDtoBuilder.class
@@ -58,6 +57,7 @@ com/hdi/ruralbuscabff/api/controller/api/CotacaoApi.class
 com/hdi/ruralbuscabff/api/model/dto/queryPolicy/QueryPolicyResultDto$QueryPolicyResultDtoBuilder.class
 com/hdi/ruralbuscabff/api/model/dto/ApolicesDto.class
 com/hdi/ruralbuscabff/api/RuralBuscaBffApiApplication.class
+com/hdi/ruralbuscabff/api/client/SearchClient.class
 com/hdi/ruralbuscabff/api/controller/api/OperacaoApi.class
 com/hdi/ruralbuscabff/api/constants/SearchConst.class
 com/hdi/ruralbuscabff/api/controller/api/EndossoApi$EndossoApiBuilder.class

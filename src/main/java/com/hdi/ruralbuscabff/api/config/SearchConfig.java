@@ -1,6 +1,6 @@
 package com.hdi.ruralbuscabff.api.config;
 
-import com.hdi.ruralbuscabff.api.integration.TokenClient;
+import com.hdi.ruralbuscabff.api.client.TokenClient;
 import com.hdi.ruralbuscabff.api.model.dto.token.TokenMultiClientDto;
 import com.hdi.ruralbuscabff.api.model.dto.token.UserDto;
 import feign.Logger;
@@ -8,11 +8,17 @@ import feign.RequestInterceptor;
 import feign.codec.ErrorDecoder;
 import feign.okhttp.OkHttpClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SearchConfig {
+
+    @Value("${rural-busca-bff.getToken.username}")
+    private String username;
+    @Value("${rural-busca-bff.getToken.password}")
+    private String password;
 
     private static final String AUTORIZATION_HEADER_VALUE = "Bearer ";
     private static final String AUTORIZATION = "Authorization";
@@ -45,8 +51,8 @@ public class SearchConfig {
 
     private String getToken() {
         final UserDto user = UserDto.builder()
-                .username("hdibr.app")
-                .password("eBao2014")
+                .username(username)
+                .password(password)
                 .build();
         TokenMultiClientDto tokenMultiClientDto = tokenClient.getTokenMulticlient(user);
         return AUTORIZATION_HEADER_VALUE.concat(tokenMultiClientDto.getAccess_token());
