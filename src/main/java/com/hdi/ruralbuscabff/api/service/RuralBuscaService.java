@@ -3,8 +3,8 @@ package com.hdi.ruralbuscabff.api.service;
 import com.hdi.ruralbuscabff.api.constants.SearchConst;
 import com.hdi.ruralbuscabff.api.controller.api.BuscaCotacaoResponseApi;
 import com.hdi.ruralbuscabff.api.integration.SearchClient;
-import com.hdi.ruralbuscabff.api.model.dto.QuotationSearchDto;
 import com.hdi.ruralbuscabff.api.model.dto.BuscaCotacaoResponseDto;
+import com.hdi.ruralbuscabff.api.model.dto.QuotationSearchDto;
 import com.hdi.ruralbuscabff.api.model.dto.queryPolicy.QueryPolicyFilterDto;
 import com.hdi.ruralbuscabff.api.model.dto.queryPolicy.QueryPolicyResultDto;
 import com.hdi.ruralbuscabff.api.model.emum.SearchFilterEnum;
@@ -34,15 +34,15 @@ public class RuralBuscaService {
         this.searchClient = searchClient;
     }
 
-    public BuscaCotacaoResponseApi searchByPeriod(final QuotationSearchDto buscaCotacao) {
+    public BuscaCotacaoResponseApi searchByPeriod(final QuotationSearchDto quotationSearch) {
         BuscaCotacaoResponseDto response = new BuscaCotacaoResponseDto();
         log.info("Start SearchByPeriod process!");
         try {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(SearchConst.DATE_TIME_DEFAULT_FORMAT);
             LocalDateTime startFrom = LocalDateTime.parse(
-                    buscaCotacao.getPeriodoCriacaoCotacao().getDataInicio(), dateTimeFormatter);
+                    quotationSearch.getPeriodoCriacaoCotacao().getDataInicio(), dateTimeFormatter);
             LocalDateTime endTo = LocalDateTime.parse(
-                    buscaCotacao.getPeriodoCriacaoCotacao().getDataFinal(), dateTimeFormatter);
+                    quotationSearch.getPeriodoCriacaoCotacao().getDataFinal(), dateTimeFormatter);
 
             //From Filter
             Map<String, Object> fromRangeConditional = new HashMap();
@@ -56,11 +56,11 @@ public class RuralBuscaService {
             QueryPolicyFilterDto queryPolicyFilter = QueryPolicyFilterDto.builder()
                     .fromRangeConditions(fromRangeConditional)
                     .toRangeConditions(toRangeConditional)
-                    .module("Policy")
-                    .pageNo(1)
-                    .pageSize(10)
-                    .sortField("EffectiveDate")
-                    .sortType("desc")
+                    .module(quotationSearch.getConfig().getModule())
+                    .pageNo(quotationSearch.getConfig().getPageNo())
+                    .pageSize(quotationSearch.getConfig().getPageSize())
+                    .sortField(quotationSearch.getConfig().getSortField())
+                    .sortType(quotationSearch.getConfig().getSortType())
                     .build();
 
             QueryPolicyResultDto result = searchClient.searchByQueryPolicy(queryPolicyFilter);

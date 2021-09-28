@@ -1,6 +1,8 @@
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/service/RuralBuscaService.java
+/home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/QuotationSearchDto.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/controller/api/SucursalApi.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/controller/api/BuscaCotacaoResponseApi.java
+/home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/controller/api/SearchConfigApi.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/controller/api/EndossoApi.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/CotacaoDto.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/ProposalDto.java
@@ -18,7 +20,6 @@
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/controller/api/PeriodoApi.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/emum/EBaoFilterKeyEnum.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/emum/TypesEnum.java
-/home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/BuscaCotacaoDto.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/integration/interceptor/SearchInterceptor.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/queryPolicy/ResultDto.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/emum/SearchFilterEnum.java
@@ -27,7 +28,6 @@
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/OperacaoDto.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/EndossoDto.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/controller/api/ProdutoApi.java
-/home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/controller/api/BuscaCotacaoApi.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/controller/api/ApolicesApi.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/queryPolicy/EsDoc.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/ItemDto.java
@@ -43,5 +43,6 @@
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/constants/SearchConst.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/ProdutoDto.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/execptions/NotFoundException.java
+/home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/controller/api/QuotationSearchApi.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/UsuarioDto.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/config/SearchConfig.java
