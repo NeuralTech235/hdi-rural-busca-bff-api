@@ -4,7 +4,14 @@
   "docCPF":"577.608.660-46",
   "docCNPJ":"",
   "periodoCriacaoCotacao":{
-    "dataInicio":"24/09/2021",
-    "dataFinal":"25/09/2021"
+    "dataInicio":"24/09/2021 00:00:00",
+    "dataFinal":"25/09/2021 00:00:00"
+  }
+  "searchConfig":{
+    "Module": "Policy",
+    "PageNo": 1,
+    "PageSize": 1000,
+    "SortField": "EffectiveDate",
+    "SortType": "desc"
   }
 }

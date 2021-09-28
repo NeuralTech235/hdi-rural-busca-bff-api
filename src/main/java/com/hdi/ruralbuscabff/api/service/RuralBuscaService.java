@@ -3,7 +3,7 @@ package com.hdi.ruralbuscabff.api.service;
 import com.hdi.ruralbuscabff.api.constants.SearchConst;
 import com.hdi.ruralbuscabff.api.controller.api.BuscaCotacaoResponseApi;
 import com.hdi.ruralbuscabff.api.integration.SearchClient;
-import com.hdi.ruralbuscabff.api.model.dto.BuscaCotacaoDto;
+import com.hdi.ruralbuscabff.api.model.dto.QuotationSearchDto;
 import com.hdi.ruralbuscabff.api.model.dto.BuscaCotacaoResponseDto;
 import com.hdi.ruralbuscabff.api.model.dto.queryPolicy.QueryPolicyFilterDto;
 import com.hdi.ruralbuscabff.api.model.dto.queryPolicy.QueryPolicyResultDto;
@@ -34,7 +34,7 @@ public class RuralBuscaService {
         this.searchClient = searchClient;
     }
 
-    public BuscaCotacaoResponseApi searchByPeriod(final BuscaCotacaoDto buscaCotacao) {
+    public BuscaCotacaoResponseApi searchByPeriod(final QuotationSearchDto buscaCotacao) {
         BuscaCotacaoResponseDto response = new BuscaCotacaoResponseDto();
         log.info("Start SearchByPeriod process!");
         try {
@@ -58,7 +58,7 @@ public class RuralBuscaService {
                     .toRangeConditions(toRangeConditional)
                     .module("Policy")
                     .pageNo(1)
-                    .pageSize(1000)
+                    .pageSize(10)
                     .sortField("EffectiveDate")
                     .sortType("desc")
                     .build();

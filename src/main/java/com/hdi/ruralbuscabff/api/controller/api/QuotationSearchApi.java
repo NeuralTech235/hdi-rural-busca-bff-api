@@ -10,15 +10,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BuscaCotacaoApi {
+public class QuotationSearchApi {
     @JsonProperty("numeroDaCotacao")
     private Integer numeroDaCotacao;
+
     @JsonProperty("nome")
     private String nome;
+
     @JsonProperty("docCPF")
     private String docCPF;
+
     @JsonProperty("docCNPJ")
     private String docCNPJ;
+
     @JsonProperty("periodoCriacaoCotacao")
     private PeriodoApi periodoCriacaoCotacao;
+
+    @JsonProperty("searchConfig")
+    private SearchConfigApi config;
 }

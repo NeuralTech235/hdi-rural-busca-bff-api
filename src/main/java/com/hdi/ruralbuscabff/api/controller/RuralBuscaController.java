@@ -1,8 +1,8 @@
 package com.hdi.ruralbuscabff.api.controller;
 
-import com.hdi.ruralbuscabff.api.controller.api.BuscaCotacaoApi;
+import com.hdi.ruralbuscabff.api.controller.api.QuotationSearchApi;
 import com.hdi.ruralbuscabff.api.controller.api.BuscaCotacaoResponseApi;
-import com.hdi.ruralbuscabff.api.model.dto.BuscaCotacaoDto;
+import com.hdi.ruralbuscabff.api.model.dto.QuotationSearchDto;
 import com.hdi.ruralbuscabff.api.service.RuralBuscaService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -27,8 +27,8 @@ public class RuralBuscaController {
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public BuscaCotacaoResponseApi searchByPeriod(@RequestBody BuscaCotacaoApi buscaCotacaoApi) {
+    public BuscaCotacaoResponseApi searchByPeriod(@RequestBody QuotationSearchApi quotationSearchApi) {
         return this.ruralBuscaBffService.searchByPeriod(
-                this.modelMapper.map(buscaCotacaoApi, BuscaCotacaoDto.class));
+                this.modelMapper.map(quotationSearchApi, QuotationSearchDto.class));
     }
 }
