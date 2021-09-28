@@ -64,6 +64,7 @@ com/hdi/ruralbuscabff/api/model/dto/ApolicesDto$ApolicesDtoBuilder.class
 com/hdi/ruralbuscabff/api/controller/api/OperacaoApi$OperacaoApiBuilder.class
 com/hdi/ruralbuscabff/api/controller/api/BuscaCotacaoApi.class
 com/hdi/ruralbuscabff/api/controller/RuralBuscaController.class
+com/hdi/ruralbuscabff/api/config/TokenConfig.class
 com/hdi/ruralbuscabff/api/model/dto/queryPolicy/QueryPolicyFilterDto.class
 com/hdi/ruralbuscabff/api/model/dto/ItemDto.class
 com/hdi/ruralbuscabff/api/controller/api/ItemApi$ItemApiBuilder.class

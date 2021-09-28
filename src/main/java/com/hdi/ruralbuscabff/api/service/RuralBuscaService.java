@@ -57,12 +57,7 @@ public class RuralBuscaService {
                     .sortType("desc")
                     .build();
 
-//            ObjectMapper objectMapper = new ObjectMapper();
-//            objectMapper.writeValue(new File("target/filter.json"), queryPolicyFilter);
-
             QueryPolicyResultDto result = searchClient.searchByQueryPolicy(queryPolicyFilter);
-
-            //Map result to return BuscaCotacaoResponseDto.
             response = (new MapQueryPolicyToResponseUtil()).mapTo(result);
 
         } catch (SecurityException ex) {

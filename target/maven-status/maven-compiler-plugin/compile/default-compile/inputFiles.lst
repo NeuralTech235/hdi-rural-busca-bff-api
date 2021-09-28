@@ -38,6 +38,7 @@
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/integration/TokenClient.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/token/TokenMultiClientDto.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/RuralBuscaBffApiApplication.java
+/home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/config/TokenConfig.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/controller/api/ItemApi.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/constants/SearchConst.java
 /home/alexss/workspace/projects/hdi/baotech/hdi-rural-busca-bff-api/src/main/java/com/hdi/ruralbuscabff/api/model/dto/ProdutoDto.java
