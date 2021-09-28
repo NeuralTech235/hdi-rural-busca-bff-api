@@ -9,6 +9,8 @@ import com.hdi.ruralbuscabff.api.model.dto.queryPolicy.QueryPolicyFilterDto;
 import com.hdi.ruralbuscabff.api.model.dto.queryPolicy.QueryPolicyResultDto;
 import com.hdi.ruralbuscabff.api.model.emum.SearchFilterEnum;
 import com.hdi.ruralbuscabff.api.util.MapQueryPolicyToResponseUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,11 +20,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
+
 @Service
 public class RuralBuscaService {
 
     private SearchClient searchClient;
     private ModelMapper modelMapper = new ModelMapper();
+
+    Logger log = LogManager.getLogger(RuralBuscaService.class);
 
     @Autowired
     public RuralBuscaService(SearchClient searchClient) {
@@ -31,6 +36,7 @@ public class RuralBuscaService {
 
     public BuscaCotacaoResponseApi searchByPeriod(final BuscaCotacaoDto buscaCotacao) {
         BuscaCotacaoResponseDto response = new BuscaCotacaoResponseDto();
+        log.info("Start SearchByPeriod process!");
         try {
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(SearchConst.DATE_TIME_DEFAULT_FORMAT);
             LocalDateTime startFrom = LocalDateTime.parse(
@@ -61,9 +67,10 @@ public class RuralBuscaService {
             response = (new MapQueryPolicyToResponseUtil()).mapTo(result);
 
         } catch (SecurityException ex) {
+            log.error("Error SearchByPeriod execution process!");
             ex.printStackTrace();
         } finally {
-            System.out.println("End process");
+            log.info("Start SearchByPeriod process!");
         }
         return modelMapper.map(response, BuscaCotacaoResponseApi.class);
     }
